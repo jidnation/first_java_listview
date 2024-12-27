@@ -75,7 +75,12 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
     }
 
-private class MyCustomerAdapter extends BaseAdapter {
+    public void addItem(View view) {
+        items.add(new AdaptarItem(R.drawable.anime4, "New Item", "This is a new item."));
+        adapter.notifyDataSetChanged();
+    }
+
+    private class MyCustomerAdapter extends BaseAdapter {
         public ArrayList<AdaptarItem> listItems;
         public MyCustomerAdapter(ArrayList<AdaptarItem> listItems) {
             this.listItems = listItems;
