@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,16 +37,16 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        items.add(new AdaptarItem(1, "Checking", "What are we doing here, please?"));
-        items.add(new AdaptarItem(2, "Update", "Have you completed the task?"));
-        items.add(new AdaptarItem(3, "Notification", "Reminder: Meeting at 3 PM."));
-        items.add(new AdaptarItem(4, "Alert", "System maintenance scheduled tonight."));
-        items.add(new AdaptarItem(5, "Inquiry", "Can you provide the latest report?"));
-        items.add(new AdaptarItem(6, "Greeting", "Hello! How's everything going?"));
-        items.add(new AdaptarItem(7, "Follow-Up", "Please confirm your availability."));
-        items.add(new AdaptarItem(8, "Request", "Kindly review the attached document."));
-        items.add(new AdaptarItem(9, "Feedback", "Your opinion is important to us!"));
-        items.add(new AdaptarItem(10, "Reminder", "Don't forget to submit your timesheet."));
+        items.add(new AdaptarItem( R.drawable.anime3,"Checking", "What are we doing here, please?"));
+        items.add(new AdaptarItem( R.drawable.anime4,"Update", "Have you completed the task?"));
+        items.add(new AdaptarItem( R.drawable.anime5,"Notification", "Reminder: Meeting at 3 PM."));
+        items.add(new AdaptarItem( R.drawable.anime3,"Alert", "System maintenance scheduled tonight."));
+        items.add(new AdaptarItem( R.drawable.anime4,"Inquiry", "Can you provide the latest report?"));
+        items.add(new AdaptarItem( R.drawable.anime3,"Greeting", "Hello! How's everything going?"));
+        items.add(new AdaptarItem( R.drawable.anime5,"Follow-Up", "Please confirm your availability."));
+        items.add(new AdaptarItem( R.drawable.anime4,"Request", "Kindly review the attached document."));
+        items.add(new AdaptarItem( R.drawable.anime3,"Feedback", "Your opinion is important to us!"));
+        items.add(new AdaptarItem( R.drawable.anime5, "Reminder", "Don't forget to submit your timesheet."));
 
         ListView listView = findViewById(R.id.listViewer);
         adapter = new MyCustomerAdapter(items);
@@ -106,8 +107,8 @@ private class MyCustomerAdapter extends BaseAdapter {
         AdaptarItem itemInfo  = listItems.get(position);
 
         // Assign values from the item to the corresponding view
-        TextView itemID = myView.findViewById(R.id.listId);
-        itemID.setText("Item ID: " + itemInfo.id);
+        ImageView itemID = myView.findViewById(R.id.itemImage);
+        itemID.setImageResource(itemInfo.id);
 
         TextView title = myView.findViewById(R.id.listTitle);
         title.setText(itemInfo.title);
